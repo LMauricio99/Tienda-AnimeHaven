@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AnimeHaven</title>
+  <link rel="shortcut icon" href="./assets/icono.svg" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="navbar">
+    <img src="./assets/icono.svg" alt="Icono de la página">
+    <button class="navbar-toggle" onclick="toggleNavbar()"></button>
+    <div class="navbar-links">
+      <a href="#Home">Inicio</a>
+      <a href="#About">Acerca de</a>
+      <div class="dropdown">
+        <button class="dropbtn">
+          Productos
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#Camisetas">Camisetas</a>
+          <a href="#Figuras">Figuras</a>
+          <a href="#Juegos">Juegos</a>
+        </div>
+      </div>
+      <a href="#Blog">Blog</a>
+      <a href="#Contact">Contacto</a>
+      <a href="#Carrito">Carrito</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <img src="./assets/paisaje-urbano-anime.jpg" alt="Ciudad urbana animada">
+    <div class="hero-text">Tienda Anime Neiva</div>
+    <div class="hero-text-subtitle">La mejor experiencia para los amantes del anime</div>
+    <a href="#comprarAqui" class="hero-button">Compra Aquí</a>
+  </div>
+
+  <div class="info-container">
+    <div class="info-box">
+      <img src="./assets/van-de-carga.png" alt="">
+      <div class="info-text">
+        <h3>Te lo llevamos</h3>
+        <p>Pregunta por nuestro servicio a Domicilio de Tienda Anime Neiva</p>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <img src="./assets/tarjeta-de-debito.png" alt="">
+      <div class="info-text">
+        <h3>Tu compra es Segura</h3>
+        <p>Puedes pagar contra entrega si prefieres</p>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <img src="./assets/tech-support.png" alt="">
+      <div class="info-text">
+        <h3>Asesoria Profesional</h3>
+        <p>Antes de comprar aclaramos todas tus dudas</p>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <img src="./assets/estrategia-medioambiental.png" alt="">
+      <div class="info-text">
+        <h3>Materiales Acoamigables</h3>
+        <p>Usamos productos no tóxicos en nuestros productos</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="carousel">
+    <button class="carousel-control prev" onclick="moveCarousel(-1)">❮</button>
+    <div class="carousel-container">
+      <div class="carousel-item">
+        <div class="card-product">
+          <div class="card-img">
+            <img src="./assets/funky-sukuna.png" alt="Funky Sukuna Itadori">
+          </div>
+          <h5>Funky Sukuna Itadori</h5>
+          <p>Descripción del producto</p>
+          <p class="price">$25.000</p>
+          <a href="./pages/product-detail.html?id=1" class="btn">Ver Detalles</a>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="card-product">
+          <div class="card-img">
+            <img src="./assets/funky-tanjiro.png" alt="Funky Tanjiro Kamado">
+          </div>
+          <h5>Funky Tanjiro</h5>
+          <p>Descripción del producto</p>
+          <p class="price">$15.000</p>
+          <a href="./pages/product-detail.html?id=2" class="btn">Ver Detalles</a>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="card-product">
+          <div class="card-img">
+            <img src="./assets/funky-goku-black.png" alt="Funky Goku Black">
+          </div>
+          <h5>Funky Goku Black</h5>
+          <p>Descripción del producto</p>
+          <p class="price">$35.000</p>
+          <a href="./pages/product-detail.html?id=3" class="btn">Ver Detalles</a>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="card-product">
+          <div class="card-img">
+            <img src="./assets/funky-sanemi.png" alt="Funky Sanemi Shinazugawa">
+          </div>
+          <h5>Funky Sanemi Shinazugawa</h5>
+          <p>Descripción del producto</p>
+          <p class="price">$85.000</p>
+          <a href="./pages/product-detail.html?id=4" class="btn">Ver Detalles</a>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="card-product">
+          <div class="card-img">
+            <img src="./assets/buzo-tanjiro.png" alt="Camibuzo Tanjiro">
+          </div>
+          <h5>Camiseta Manga Corta Tanjiro Kamado</h5>
+          <p>Descripción del producto</p>
+          <p class="price">$65.000</p>
+          <a href="./pages/product-detail.html?id=5" class="btn">Ver Detalles</a>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="card-product">
+          <div class="card-img">
+            <img src="./assets/playera-jujutsu.png" alt="Camiseta Playera Jujutsu">
+          </div>
+          <h5>Camiseta Playera Jujutsu Kaisen | Sukuna & Itadori</h5>
+          <p>Descripción del producto</p>
+          <p class="price">$55.000</p>
+          <a href="./pages/product-detail.html?id=6" class="btn">Ver Detalles</a>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="card-product">
+          <div class="card-img">
+            <img src="./assets/playera-kaiju.png" alt="Camiseta Kaiju N° 8">
+          </div>
+          <h5>Camiseta Kaiju N° 8</h5>
+          <p>Descripción del producto</p>
+          <p class="price">$45.000</p>
+          <a href="./pages/product-detail.html?id=7" class="btn">Ver Detalles</a>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="card-product">
+          <div class="card-img">
+            <img src="./assets/playera-one-piece.png" alt="Camiseta One Piece">
+          </div>
+          <h5>Camiseta One Piece Edición N° 1</h5>
+          <p>Descripción del producto</p>
+          <p class="price">$99.999</p>
+          <a href="./pages/product-detail.html?id=8" class="btn">Ver Detalles</a>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control next" onclick="moveCarousel(1)">❯</button>
+  </div>
+
+  <div class="description-store-container">
+    <img class="description-store-image" src="./assets/description-store-image.png" alt="">
+    <p class="description-store-text">
+      ¡Bienvenidos a Tienda Anime Neiva, tu destino número uno para
+      sumergirte en el fascinante universo del anime y Manga en la ciudad
+      bambuquera!. Con más de 5 años de experiencia en el mundo del marketing
+      y una profunda conexión con la cultura anime, estamos aquí para guiarte
+      a través de este emocionante viaje.
+    </p>
+  </div>
+
+  <div class="parallax">
+    <div class="parallax-content">
+      <h2>Anime Store Neiva: Más que una Compra, una Experiencia</h2>
+      <p>
+        En tienda anime neiva, no vendemos simplemente productos;
+        ofrecemos una experiencia completa. Cada compra es una oportunidad
+        para sumergirte aún más en el mundo del anime y conectarte con otros
+        apasionados. Nuestra tienda no es solo un lugar de transacciones, sino
+        un punto de encuentro donde las historias se comparten y los lazos
+        se fortalecen.
+      </p>
+      <a href="#" class="btn">Vamos a la acción</a>
+    </div>
+  </div>
+
+  <div class="comments-sections">
+    <h2>Lo que dicen nuestos usuarios</h2>
+    <div class="comments-cards">
+      <!--Card 1-->
+      <div class="card">
+        <img src="./assets/funky-sanemi.png" alt="Usuario 1">
+        <h3>Sanemi Shinazugawa</h3>
+        <p>El servicio fue excelente, realmente satisfecho con la calidad y rapidez.</p>
+        <div class="rating">★★★★★</div>
+      </div>
+
+      <!--Card 2-->
+      <div class="card">
+        <img src="./assets/funky-sukuna.png" alt="Usuario 2">
+        <h3>Ryomen Sukuna</h3>
+        <p>El servicio fue excelente, realmente satisfecho con la calidad y rapidez.</p>
+        <div class="rating">★★★★★</div>
+      </div>
+
+      <!--Card 3-->
+      <div class="card">
+        <img src="./assets/funky-tanjiro.png" alt="Usuario 3">
+        <h3>Tanjiro Kamado</h3>
+        <p>El servicio fue excelente, realmente satisfecho con la calidad y rapidez.</p>
+        <div class="rating">★★★★★</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="blog" class="blog-section">
+    <div class="container">
+      <h2>Últimas noticias</h2>
+      <div class="blog-grid">
+        <div class="blog-post">
+          <img src="./assets/my-hero-post.png" alt="Kimetsu no yaiba">
+          <div class="post-content">
+            <h3>My Hero Academy</h3>
+            <p>Boku no Hero Academia nuevos episodios...</p>
+            <a href="#" class="read-more">Leer Más</a>
+          </div>
+        </div>
+
+        <div class="blog-post">
+          <img src="./assets/kaiju-post.png" alt="Kimetsu no yaiba">
+          <div class="post-content">
+            <h3>Kaiju N° 8</h3>
+            <p>Confirmada la fecha de lanzamiento...</p>
+            <a href="#" class="read-more">Leer Más</a>
+          </div>
+        </div>
+
+        <div class="blog-post">
+          <img src="./assets/jujutsu-post.png" alt="Kimetsu no yaiba">
+          <div class="post-content">
+            <h3>Jujutsu Kaisen</h3>
+            <p>Los juegos de sacrificio, última temporada...</p>
+            <a href="#" class="read-more">Leer Más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="parallax-end">
+    <p>¡Bienvenido a AnimeHaven Neiva, donde tu amor por el anime cobra vida!</p>
+  </div>
+
+  <div class="footer">
+    <div class="container">
+      <div class="footer-sections">
+        <div class="footer-logo">
+          <h2>AnimeHaven</h2>
+          <p>Tu tienda en línea para todo lo relacionado con el anime. Calidad y servicio garantizado.</p>
+        </div>
+        <div class="footer-links">
+          <h3>Enlaces rápidos</h3>
+          <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Acerca de</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-newsletter">
+          <h3>Suscríbete a nuestro boletín</h3>
+          <form action="">
+            <input type="email" name="" id="" placeholder="Introduce tu correo electrónico">
+            <button type="submit">Suscribirse</button>
+          </form>
+        </div>
+        <div class="footer-social">
+          <h3>Siguenos</h3>
+          <div class="social-icons">
+            <a href="#"><img src="./assets/facebook.svg" alt="Facebook"></a>
+            <a href="#"><img src="./assets/twitter.svg" alt="Twitter"></a>
+            <a href="#"><img src="./assets/instagram.svg" alt="Instagram"></a>
+            <a href="#"><img src="./assets/youtube.svg" alt="Youtube"></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 AnimeHaven. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="spacer"></div> -->
+
+  <button class="back-to-top" onclick="scrollToTop();"></button>
+  <script src="./index.js"></script>
+</body>
+</html>

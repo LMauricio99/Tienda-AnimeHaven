@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "Funky Sukuna Itadori",
+    "subtitle": "Rey de las Maldiciones en Forma de Funko",
+    "description": "Descubre la versión Funko Pop de Sukuna, el Rey de las Maldiciones, fusionado con Itadori Yuji de la popular serie Jujutsu Kaisen. Este Funko captura todos los detalles icónicos de Sukuna, desde sus marcas faciales distintivas hasta su postura imponente. Perfecto para los fans de la serie que buscan una pieza coleccionable única.",
+    "price": "25.000",
+    "oldPrice": "35.000",
+    "imgPath": "../assets/funky-sukuna.png"
+  },
+  {
+    "id": 2,
+    "title": "Funky Tanjiro Kamado",
+    "subtitle": "El Cazador de Demonios en Tu Colección",
+    "description": "Trae a casa a Tanjiro Kamado, el protagonista de Kimetsu no Yaiba (Demon Slayer), en forma de Funko Pop. Este Funko resalta la determinación de Tanjiro, con su espada y su expresión de lucha. Es un artículo imprescindible para cualquier fan de la serie que quiera capturar el espíritu del cazador de demonios.",
+    "price": "15.000",
+    "oldPrice": "25.000",
+    "imgPath": "../assets/funky-tanjiro.png"
+  },
+  {
+    "id": 3,
+    "title": "Funky Goku Black",
+    "subtitle": "El Villano Icónico de Dragon Ball Super",
+    "description": "Celebra el lado oscuro de Goku con este Funko Pop de Goku Black, uno de los villanos más temibles de Dragon Ball Super. Con su mirada feroz y la Espada de la Energía en mano, este Funko es un tributo perfecto al arco de la saga de Trunks del futuro.",
+    "price": "35.000",
+    "oldPrice": "45.000",
+    "imgPath": "../assets/funky-goku-black.png"
+  },
+  {
+    "id": 4,
+    "title": "Funky Sanemi Shinazugawa",
+    "subtitle": "El Hashira del Viento en Tu Colección",
+    "description": "Añade a Sanemi Shinazugawa, el Hashira del Viento de Kimetsu no Yaiba (Demon Slayer), a tu colección Funko Pop. Con su cicatriz en el rostro y su uniforme de cazador de demonios, este Funko destaca por su carácter indomable y su actitud desafiante.",
+    "price": "85.000",
+    "oldPrice": "100.000",
+    "imgPath": "../assets/funky-sanemi.png"
+  },
+  {
+    "id": 5,
+    "title": "Camiseta Manga Corta Tanjiro Kamado",
+    "subtitle": "Estilo Casual con un Toque de Demon Slayer",
+    "description": "Lleva contigo la determinación de Tanjiro Kamado con esta camiseta de manga corta inspirada en Kimetsu no Yaiba (Demon Slayer). Fabricada con algodón de alta calidad, esta camiseta es perfecta para los fans que desean mostrar su pasión por la serie mientras disfrutan de un estilo casual y cómodo.",
+    "price": "65.000",
+    "oldPrice": "85.000",
+    "imgPath": "../assets/buzo-tanjiro.png"
+  },
+  {
+    "id": 6,
+    "title": "Camiseta Playera Jujutsu Kaisen | Sukuna & Itadori",
+    "subtitle": "Dos Poderes en Conflicto en un Diseño Único",
+    "description": "Esta camiseta presenta una impactante ilustración de Sukuna e Itadori Yuji, capturando el conflicto interno entre los dos personajes. Hecha con materiales suaves y duraderos, es ideal para los seguidores de Jujutsu Kaisen que quieren llevar un pedazo de la serie a donde vayan.",
+    "price": "55.000",
+    "oldPrice": "65.000",
+    "imgPath": "../assets/playera-jujutsu.png"
+  },
+  {
+    "id": 7,
+    "title": "Camiseta Kaiju N° 8",
+    "subtitle": "Transformación y Poder en un Solo Diseño",
+    "description": "Inspirada en el manga Kaiju No. 8, esta camiseta representa a Kafka Hibino, quien se transforma en el poderoso Kaiju No. 8. Con un diseño impresionante y detalles que reflejan la intensidad del manga, esta camiseta es una excelente opción para los aficionados del género de monstruos.",
+    "price": "45.000",
+    "oldPrice": "55.000",
+    "imgPath": "../assets/playera-kaiju.png"
+  },
+  {
+    "id": 8,
+    "title": "Camiseta One Piece Edición N° 1",
+    "subtitle": "Revive el Comienzo de la Gran Aventura",
+    "description": "Rinde homenaje a los comienzos épicos de One Piece con esta camiseta que presenta a Luffy y su tripulación en su primera aventura. Con un diseño que recuerda a la portada del primer volumen del manga, es una prenda esencial para cualquier fan de la serie que sigue el viaje de los Sombrero de Paja.",
+    "price": "99.000",
+    "oldPrice": "120.000",
+    "imgPath": "../assets/playera-one-piece.png"
+  }
+]

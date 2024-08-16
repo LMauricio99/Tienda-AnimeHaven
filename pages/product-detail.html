@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle del Producto</title>
+  <!--Css Local-->
+  <link rel="stylesheet" href="../css/product-detail.css">
+  <!--Logo Página-->
+  <link rel="shortcut icon" href="../assets/icono.svg" type="image/x-icon">
+  <!--Fuente Iconos Internet-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+  <div class="navbar">
+    <img src="../assets/icono.svg" alt="Icono de la página">
+    <button class="navbar-toggle" onclick="toggleNavbar()"></button>
+    <div class="navbar-links">
+      <a href="../index.html">Inicio</a>
+      <a href="#About">Acerca de</a>
+      <div class="dropdown">
+        <button class="dropbtn">
+          Productos
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#Camisetas">Camisetas</a>
+          <a href="#Figuras">Figuras</a>
+          <a href="#Juegos">Juegos</a>
+        </div>
+      </div>
+      <a href="#Blog">Blog</a>
+      <a href="#Contact">Contacto</a>
+      <a href="#Carrito">Carrito</a>
+    </div>
+  </div>
+
+  <div class="product-details">
+    <div class="product-image">
+      <img id="img-producto" src="" alt="Imagen del Producto">
+    </div>
+    <div class="product-info">
+      <h2 id="title-producto"></h2>
+      <h3 id="subtitle-producto"></h3>
+      <div class="prices">
+        <p id="price-producto" class="price"></p>
+        <p class="oldPrice" id="old-price-producto"></p>
+      </div>
+      <p id="description-producto" class="description"></p>
+      <div class="quantity-selector">
+        <label for="quantity">Cantidad:</label>
+        <input type="number" name="quantity" id="quantity" min="1" value="1">
+      </div>
+      <button id="add-to-car" class="add-to-car">Añadir al carrito</button>
+      <div class="free-delivery">
+        <p>Envió gratis, por compras superiores a $50.000</p>
+        <ul>
+          <li>
+            <i class="fa-solid fa-award"></i> Satisfacción Garantizada
+          </li>
+          <li>
+            <i class="fa-solid fa-handshake"></i> Reembolsos sin problemas
+          </li>
+          <li>
+            <i class="fa-solid fa-lock"></i> Pagos Seguros
+          </li>
+        </ul>
+      </div>
+
+      <div class="payment-methods">
+        <p>Pago Seguro Garantizado</p>
+        <div class="pay-with-cards">
+          <i class="fa-brands fa-cc-visa"></i>
+          <i class="fa-brands fa-cc-mastercard"></i>
+          <i class="fa-brands fa-cc-amex"></i>
+          <i class="fa-brands fa-cc-paypal"></i>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tablink" onclick="openTab(event, 'descripcion')" id="defaultOpen">Descripción</button>
+    <button class="tablink" onclick="openTab(event, 'valoraciones')">Valoraciones (0)</button>
+  </div>
+
+  <div id="descripcion" class="tabcontent">
+    <h2>Descripciones</h2>
+    <p>No hay descripciones aún. Sé el primero en describir este producto.</p>
+  </div>
+
+  <div id="valoraciones" class="tabcontent">
+    <h2>Valoraciones</h2>
+    <p>No hay valoraciones aún. Sé el primero en valorar este producto.</p>
+  </div>
+
+  <div id="modalCarrito" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Producto agregado exitosamente al carrito!</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="container">
+      <div class="footer-sections">
+        <div class="footer-logo">
+          <h2>AnimeHaven</h2>
+          <p>Tu tienda en línea para todo lo relacionado con el anime. Calidad y servicio garantizado.</p>
+        </div>
+        <div class="footer-links">
+          <h3>Enlaces rápidos</h3>
+          <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Acerca de</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-newsletter">
+          <h3>Suscríbete a nuestro boletín</h3>
+          <form action="">
+            <input type="email" name="" id="" placeholder="Introduce tu correo electrónico">
+            <button type="submit">Suscribirse</button>
+          </form>
+        </div>
+        <div class="footer-social">
+          <h3>Siguenos</h3>
+          <div class="social-icons">
+            <a href="#"><img src="../assets/facebook.svg" alt="Facebook"></a>
+            <a href="#"><img src="../assets/twitter.svg" alt="Twitter"></a>
+            <a href="#"><img src="../assets/instagram.svg" alt="Instagram"></a>
+            <a href="#"><img src="../assets/youtube.svg" alt="Youtube"></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 AnimeHaven. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </div>
+  <script src="../index.js"></script>
+</body>
+</html>
