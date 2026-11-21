@@ -1,125 +1,111 @@
-function toggleNavbar(){
-  const navbarLinks = document.querySelector('.navbar-links');
-  navbarLinks.classList.toggle('active');
+function toggleNavbar() {
+  const links = document.querySelector('.navbar-links');
+  if (links) links.classList.toggle('active');
 }
-
-function scrollToTop(){
-  window.scrollTo({top: 0, behavior: 'smooth'});
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
 let currentIndex = 0;
-const totalItems = document.querySelectorAll('.carousel-item').length;
-
 function moveCarousel(direction) {
-    currentIndex += direction;
-
-    if (currentIndex < 0) {
-        currentIndex = totalItems - 1;
-    } else if (currentIndex >= totalItems) {
-        currentIndex = 0;
-    }
-
-    const offset = -currentIndex * 25; /* Ajustado para 4 elementos visibles */
-    document.querySelector('.carousel-container').style.transform = `translateX(${offset}%)`;
+  const track = document.querySelector('.carousel-container');
+  if (!track || !track.children.length) return;
+  const first = track.children[0];
+  const styles = getComputedStyle(first);
+  const step = first.offsetWidth + parseFloat(styles.marginLeft || 0)
+    + parseFloat(styles.marginRight || 0);
+  const maxOffset = Math.max(0, track.scrollWidth - track.clientWidth);
+  const lastIndex = step > 0 ? Math.ceil(maxOffset / step) : 0;
+  currentIndex += direction;
+  if (currentIndex > lastIndex) currentIndex = 0;
+  if (currentIndex < 0) currentIndex = lastIndex;
+  track.style.transform = `translateX(-${Math.min(currentIndex * step, maxOffset)}px)`;
 }
-
-document.getElementById('add-to-car').addEventListener('click', function(){
-  const quantity = document.getElementById('quantity').value;
-  alert(`Has añadido ${quantity} artículo(s) al carrito.`)
-})
-
-/**Tabs code */
-function openTab(evt, tabName){
-  var i, tabcontent, tablinks;
-
-  //Oculta todo el contenido de las pestañas
-  tabcontent = document.getElementsByClassName('tabcontent');
-  for (i = 0; i < tabcontent.length; i++){
-    tabcontent[i].style.display = 'none';
+function openTab(evt, tabName) {
+  const panel = document.getElementById(tabName);
+  if (!panel) return;
+  document.querySelectorAll('.tabcontent').forEach(item => {
+    item.style.display = 'none';
+  });
+  document.querySelectorAll('.tablink').forEach(button => {
+    button.classList.remove('active');
+  });
+  panel.style.display = 'block';
+  evt.currentTarget.classList.add('active');
+}
+async function cargarProductos() {
+  const response = await fetch('./datos.json');
+  if (!response.ok) throw new Error('No se pudo cargar el catálogo.');
+  return response.json();
+}
+function mostrarDetallesProducto(producto) {
+  const fields = {
+    'title-producto': producto.title,
+    'subtitle-producto': producto.subtitle,
+    'description-producto': producto.description,
+    'price-producto': `$${producto.price}`,
+    'old-price-producto': `$${producto.oldPrice}`
+  };
+  Object.entries(fields).forEach(([id, value]) => {
+    const element = document.getElementById(id);
+    if (element) element.textContent = value;
+  });
+  const image = document.getElementById('img-producto');
+  if (image) {
+    image.src = producto.imgPath;
+    image.alt = producto.title;
   }
-
-  //Elimina la clase 'active' de todos los enlaces de las pestañas
-  tablinks = document.getElementsByClassName('tablink');
-  for (i = 0; i < tablinks.length; i++){
-    tablinks[i].className = tablinks[i].className.replace(' active', '');
-  }
-
-  //Muestra la pestaña actual y agrega la clase 'active' al botón de la pestaña que se ha hecho click
-  document.getElementById(tabName).style.display = 'block';
-  evt.currentTarget.className += ' active';
+  const description = document.querySelector('#descripcion p');
+  if (description) description.textContent = producto.description;
+  document.title = `${producto.title} | AnimeHaven`;
 }
-
-document.getElementById('defaultOpen').click();
-
-//Función para cargar los datos JSON
-async function cargarProductos(){
-  try{
-    const response = await fetch('/tienda-online/pages/datos.json');
-    if(!response.ok){
-      console.error('Error al cargar el archivo JSON');
-      return;
-    }
-    const productos = await response.json();
-    console.log('Productos cargados:', productos);
-    return productos;
-  }catch(error){
-    console.error('Error al cargar el archivo JSON:', error);
-  }
-}
-
-//Función para mostrar los detalles de un producto
-function mostrarDetallesProducto(producto){
-
-  document.getElementById('title-producto').textContent = producto.title;
-  document.getElementById('subtitle-producto').textContent = producto.subtitle;
-  document.getElementById('description-producto').textContent = producto.description;
-  document.getElementById('price-producto').textContent = `$${producto.price}`;
-  document.getElementById('old-price-producto').textContent = `$${producto.oldPrice}`;
-  document.getElementById('img-producto').src = producto.imgPath;
-  // console.log('Ruta de la imagen:', producto.imgPath); 
-}
-
-//Función para inicializar el detalles del producto
-async function init(){
-  const productos = await cargarProductos();
-
-  if(!productos) return;
-
-  const urlParams = new URLSearchParams(window.location.search);
-  const productId = parseInt(urlParams.get('id'));
-
-  console.log('ID del producto:', productId);
-  const producto = productos.find(p => p.id === productId);
-  console.log('Producto encontrado---:', producto);
-
-  if(producto){
+async function init() {
+  // La portada y la ficha comparten este archivo.
+  if (!document.getElementById('title-producto')) return;
+  const addButton = document.getElementById('add-to-car');
+  if (addButton) addButton.disabled = true;
+  try {
+    const id = new URLSearchParams(window.location.search).get('id');
+    if (!id || !/^\d+$/.test(id)) throw new Error('No encontramos ese producto.');
+    const productos = await cargarProductos();
+    const producto = productos.find(item => item.id === Number(id));
+    if (!producto) throw new Error('No encontramos ese producto.');
     mostrarDetallesProducto(producto);
-  }else{
-    console.error('No se encontro el producto');
+    if (addButton) addButton.disabled = false;
+  } catch (error) {
+    document.getElementById('title-producto').textContent = 'Producto no disponible';
+    const description = document.getElementById('description-producto');
+    if (description) description.textContent = `${error.message} Puedes volver al inicio y elegir otro.`;
   }
 }
-
-//Ejecuta la función init al cargar la pestaña
-window.onload = init;
-
-
-// Obtener elementos del DOM
-const modal = document.getElementById("modalCarrito");
-const span = document.getElementsByClassName("close")[0];
-
-// Mostrar el modal cuando se hace clic en "Añadir al carrito"
-document.getElementById("add-to-cart-button").addEventListener("click", function() {
-    modal.style.display = "block";
+document.getElementById('defaultOpen')?.click();
+const modal = document.getElementById('modalCarrito');
+const closeButton = modal?.querySelector('.close');
+const addButton = document.getElementById('add-to-car');
+const quantityInput = document.getElementById('quantity');
+addButton?.addEventListener('click', () => {
+  const quantity = Number(quantityInput?.value);
+  if (!Number.isSafeInteger(quantity) || quantity < 1) {
+    quantityInput?.setCustomValidity('Escribe una cantidad entera mayor que cero.');
+    quantityInput?.reportValidity();
+    return;
+  }
+  quantityInput.setCustomValidity('');
+  if (modal) {
+    modal.querySelector('p').textContent = `Has seleccionado ${quantity} artículo(s). Esta es una demo; no se realizará ninguna compra.`;
+    modal.style.display = 'block';
+  }
 });
-
-// Cerrar el modal cuando se hace clic en la "X"
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// Cerrar el modal si se hace clic fuera de él
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+quantityInput?.addEventListener('input', () => quantityInput.setCustomValidity(''));
+closeButton?.addEventListener('click', () => { modal.style.display = 'none'; });
+window.addEventListener('click', event => {
+  if (modal && event.target === modal) modal.style.display = 'none';
+});
+window.addEventListener('keydown', event => {
+  if (modal && event.key === 'Escape') modal.style.display = 'none';
+});
+window.addEventListener('resize', () => {
+  currentIndex = 0;
+  const track = document.querySelector('.carousel-container');
+  if (track) track.style.transform = 'translateX(0)';
+});
+init();

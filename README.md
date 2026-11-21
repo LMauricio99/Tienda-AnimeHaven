@@ -1,54 +1,23 @@
 # AnimeHaven
 
-Proyecto frontend de una tienda temática de anime, desarrollado con **HTML, CSS y JavaScript**.
+Una tienda de anime hecha con HTML, CSS y JavaScript. La empecé para practicar maquetación y manejo del DOM, y ahora la estoy retomando para mejorarla.
 
-El repositorio permite explorar la construcción de una interfaz de catálogo y detalles de productos. Se encuentra en desarrollo.
+Tiene un catálogo con ocho productos, un carrusel y una página de detalle que lee los datos desde JSON. El botón del carrito muestra una confirmación de la cantidad elegida; todavía no guarda pedidos ni procesa pagos.
 
-## Funciones presentes en el código
-
-- Alternancia del menú de navegación.
-- Carrusel de productos.
-- Navegación entre pestañas de contenido.
-- Carga de información de productos desde un archivo JSON.
-- Selección de un producto mediante el parámetro `id` de la URL.
-- Interacciones visuales de carrito mediante alerta y modal.
-
-Las interacciones del carrito son demostrativas. No se presenta este proyecto como una tienda con pagos, pedidos o persistencia de carrito implementados.
-
-## Tecnologías
-
-- HTML
-- CSS
-- JavaScript: DOM, eventos, Fetch API y URLSearchParams.
-
-## Estructura
-
-```text
-index.html     Página principal
-index.js       Interacciones y carga de productos
-style.css      Estilos
-css/           Estilos adicionales
-assets/        Recursos visuales
-pages/         Páginas y recursos del catálogo
-```
-
-## Ejecutar localmente
+## Probar el proyecto
 
 ```bash
 git clone https://github.com/LMauricio99/Tienda-AnimeHaven.git
 cd Tienda-AnimeHaven
+python -m http.server 8000
 ```
 
-Sirve la carpeta con un servidor HTTP local, por ejemplo con Live Server de tu editor. La carga mediante `fetch` requiere un entorno HTTP; abrir los archivos con `file://` puede impedir la lectura del JSON.
+Abre http://localhost:8000. También puedes usar Live Server. Es necesario servir los archivos por HTTP para cargar el catálogo.
 
-## Pendientes conocidos
+## Últimos ajustes
 
-- Revisar la ruta fija `/tienda-online/pages/datos.json` para que funcione desde la raíz real de despliegue.
-- Comprobar la existencia de los elementos antes de registrar eventos o manipularlos, especialmente si el mismo script se comparte entre distintas páginas.
-- Validar cantidades e identificar productos inexistentes con mensajes visibles para el usuario.
-- Verificar navegación, carrusel, pestañas y modal en escritorio y móvil.
-- Incorporar una captura y una demo tras completar esas verificaciones.
+Corregí la carga del catálogo y los errores que aparecían al compartir el mismo JavaScript entre la portada y la ficha. También agregué validación de cantidades, un aviso para productos inexistentes y cierre del modal con Escape.
 
-## Autor
+Probé la portada, la ficha de producto, una cantidad inválida y un ID inexistente. Falta revisar con más detalle la adaptación a móviles, completar los enlaces de navegación y convertir la confirmación del carrito en un carrito que guarde los productos.
 
-[Henry Mauricio Lozada Barragán](https://github.com/LMauricio99)
+Los archivos principales son `index.html`, `index.js` y `style.css`. En `pages/` están la ficha y el catálogo; en `assets/`, las imágenes.
