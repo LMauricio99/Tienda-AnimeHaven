@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,29 +10,20 @@
   <link rel="shortcut icon" href="../assets/icono.svg" type="image/x-icon">
   <!--Fuente Iconos Internet-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../responsive.css">
 </head>
-<body>
+<body id="inicio">
+  <p class="demo-notice">Proyecto de portafolio · Catálogo de demostración, sin compras reales.</p>
 
   <div class="navbar">
     <img src="../assets/icono.svg" alt="Icono de la página">
-    <button class="navbar-toggle" onclick="toggleNavbar()"></button>
-    <div class="navbar-links">
+    <button class="navbar-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal" onclick="toggleNavbar()">☰</button>
+    <div class="navbar-links" id="menu-principal">
       <a href="../index.html">Inicio</a>
-      <a href="#About">Acerca de</a>
-      <div class="dropdown">
-        <button class="dropbtn">
-          Productos
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-          <a href="#Camisetas">Camisetas</a>
-          <a href="#Figuras">Figuras</a>
-          <a href="#Juegos">Juegos</a>
-        </div>
-      </div>
-      <a href="#Blog">Blog</a>
-      <a href="#Contact">Contacto</a>
-      <a href="#Carrito">Carrito</a>
+      <a href="../index.html#acerca">Acerca de</a>
+      <a href="../index.html#productos">Productos</a>
+      <a href="../index.html#blog">Blog</a>
+      <a href="../index.html#contacto">Contacto</a>
     </div>
   </div>
 
@@ -96,14 +87,14 @@
     <p>No hay valoraciones aún. Sé el primero en valorar este producto.</p>
   </div>
 
-  <div id="modalCarrito" class="modal">
+  <div id="modalCarrito" class="modal" role="dialog" aria-modal="true" aria-label="Selección de producto">
     <div class="modal-content">
-      <span class="close">&times;</span>
+      <button type="button" class="close" aria-label="Cerrar confirmación">&times;</button>
       <p>Producto agregado exitosamente al carrito!</p>
     </div>
   </div>
 
-  <div class="footer">
+  <div class="footer" id="contacto">
     <div class="container">
       <div class="footer-sections">
         <div class="footer-logo">
@@ -113,27 +104,17 @@
         <div class="footer-links">
           <h3>Enlaces rápidos</h3>
           <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Acerca de</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Contacto</a></li>
+            <li><a href="../index.html#inicio">Inicio</a></li>
+            <li><a href="../index.html#acerca">Acerca de</a></li>
+            <li><a href="../index.html#blog">Blog</a></li>
+            <li><a href="../index.html#contacto">Contacto</a></li>
           </ul>
         </div>
-        <div class="footer-newsletter">
-          <h3>Suscríbete a nuestro boletín</h3>
-          <form action="">
-            <input type="email" name="" id="" placeholder="Introduce tu correo electrónico">
-            <button type="submit">Suscribirse</button>
-          </form>
-        </div>
-        <div class="footer-social">
-          <h3>Siguenos</h3>
-          <div class="social-icons">
-            <a href="#"><img src="../assets/facebook.svg" alt="Facebook"></a>
-            <a href="#"><img src="../assets/twitter.svg" alt="Twitter"></a>
-            <a href="#"><img src="../assets/instagram.svg" alt="Instagram"></a>
-            <a href="#"><img src="../assets/youtube.svg" alt="Youtube"></a>
-          </div>
+        <div class="footer-project">
+          <h3>Sobre este proyecto</h3>
+          <p>Una práctica de desarrollo frontend de Mauricio Lozada.</p>
+          <a href="https://github.com/LMauricio99/Tienda-AnimeHaven">Ver código en GitHub</a>
+          <a href="https://www.linkedin.com/in/mauriciolosada05/">Contacto en LinkedIn</a>
         </div>
       </div>
       <div class="footer-bottom">
