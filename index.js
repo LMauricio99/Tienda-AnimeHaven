@@ -1,6 +1,10 @@
 function toggleNavbar() {
   const links = document.querySelector('.navbar-links');
-  if (links) links.classList.toggle('active');
+  if (!links) return;
+  const open = links.classList.toggle('active');
+  const toggle = document.querySelector('.navbar-toggle');
+  toggle?.setAttribute('aria-expanded', String(open));
+  toggle?.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
 }
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -109,3 +113,12 @@ window.addEventListener('resize', () => {
   if (track) track.style.transform = 'translateX(0)';
 });
 init();
+
+document.querySelectorAll('.navbar-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.querySelector('.navbar-links')?.classList.remove('active');
+    const toggle = document.querySelector('.navbar-toggle');
+    toggle?.setAttribute('aria-expanded', 'false');
+    toggle?.setAttribute('aria-label', 'Abrir menú');
+  });
+});
